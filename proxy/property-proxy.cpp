@@ -1,3 +1,13 @@
+/*
+ * Proxy Design Pattern
+ *
+ * The Proxy pattern provides a surrogate or placeholder for another object to control access to it.
+ * It is useful when you want to add a layer of control over the object, such as lazy initialization,
+ * access control, logging, or caching.
+ * In this example, the Property template class acts as a proxy for primitive types, allowing additional behavior
+ * to be added when accessing or modifying the values, such as validation or logging.
+ */
+
 template<typename T> struct Property
 {
     T value;
