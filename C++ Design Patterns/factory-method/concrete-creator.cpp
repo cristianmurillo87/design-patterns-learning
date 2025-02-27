@@ -64,7 +64,7 @@ class PointFactory
 public:
     PointFactory() {}
 
-    BasePoint create_point(PointType type)
+    BasePoint create_from_point_type(PointType type)
     {
         switch (type)
         {
@@ -81,8 +81,8 @@ public:
 int main()
 {
     PointFactory factory;
-    auto cartesian = factory.create_point(PointType::CARTESIAN);
-    auto polar = factory.create_point(PointType::POLAR);
+    auto cartesian = factory.create_from_point_type(PointType::CARTESIAN);
+    auto polar = factory.create_from_point_type(PointType::POLAR);
 
     std::cout << cartesian.coordinates() << std::endl;
     std::cout << polar.coordinates() << std::endl;
