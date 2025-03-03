@@ -2,12 +2,14 @@
 #include <iostream>
 #include <memory>
 
+// abstract product
 struct HotDrink
 {
     virtual ~HotDrink() = default;
     virtual void prepare(int volume) = 0;
 };
 
+// concrete products, each product is a class
 struct Tea: HotDrink 
 {
     void prepare(int volume) override {
