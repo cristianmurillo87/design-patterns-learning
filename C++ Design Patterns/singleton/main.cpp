@@ -100,11 +100,43 @@ struct ConfigurableRecordFinder
     }
 };
 
+/**
+ * Example of the Bill Pugh singleton implementation
+ * Here, an inner class is used to create the singleton instance using a static method
+ * and is one of the most widely used variants for implementing the singleton pattern
+ */
+struct BillPughSingleton
+{
+    static BillPughSingleton instance()
+    {
+        return InnerBillPughSingleton::unique_instance;
+    }
+
+    std::string get_value(std::string key)
+    {
+        return database[key];
+    }
+
+private:
+
+    std::map<std::string, std::string> database;
+
+    BillPughSingleton() {}
+
+    struct InnerBillPughSingleton
+    {
+        static BillPughSingleton unique_instance; 
+    };
+};
+
 int main()
 {
     std::string city = "Tokyo";
     std::cout << city << " has population " <<
     SingletonDatabase::get().get_population(city) << std::endl;
+
+    BillPughSingleton instance = BillPughSingleton::instance();
+    std::cout << "Value: " << instance.get_value("some_key") << std::endl;
 
     return 0;
 }
