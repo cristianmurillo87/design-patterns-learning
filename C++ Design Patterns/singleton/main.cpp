@@ -117,6 +117,8 @@ struct BillPughSingleton
         return database[key];
     }
 
+    void operator=(BillPughSingleton const&) = delete;
+
 private:
 
     std::map<std::string, std::string> database;
